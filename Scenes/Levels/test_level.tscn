@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl0wcisintrg7"]
+
+[ext_resource type="MeshLibrary" uid="uid://boo4fy4ttm8ko" path="res://Scenes/Levels/tilemaps/tilemap.tres" id="1_b07c4"]
+[ext_resource type="PackedScene" uid="uid://b736vre4brnyy" path="res://Scenes/Player/player.tscn" id="2_2ytpj"]
+[ext_resource type="PackedScene" uid="uid://cfgbnv3ags62d" path="res://Scenes/Balls/golf_ball_red.tscn" id="3_2ytpj"]
+[ext_resource type="PackedScene" uid="uid://sapcfu0djjbh" path="res://kenney_minigolf-kit/Models/GLB format/spline-concave-corner-large-ramp.glb" id="4_npfmg"]
+[ext_resource type="PackedScene" uid="uid://di7fwwyv5tapl" path="res://Scenes/Splines/spline_default_looping_2.tscn" id="5_npfmg"]
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh_library = ExtResource("1_b07c4")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 65535, 5, 0, 0, 3, 0, 1, 2, 0, 2, 4, 1, 2, 6, 1, 1, 7, 1, 0, 8, 1, 65535, 51, 2, 2, 9, 2, 1, 10, 2, 0, 11, 2, 65535, 12, 3, 2, 13, 3, 1, 14, 3, 0, 15, 3, 65535, 16, 5, 2, 21, 4, 2, 17, 4, 1, 18, 4, 0, 19, 4, 65535, 20, 5, 1, 22, 5, 0, 23, 5, 65535, 655390, 6, 2, 655384, 6, 1, 655385, 6, 0, 655386, 6, 65535, 655387, 7, 2, 655388, 7, 1, 655389, 7, 0, 655391, 7, 65535, 655392, 8, 2, 655393, 8, 1, 655394, 8, 0, 655395, 8, 65535, 655397, 9, 2, 655400, 9, 1, 655396, 9, 0, 655398, 9, 65535, 655399, 10, 2, 655401, 10, 1, 655402, 10, 0, 655403, 10, 65535, 655404, 11, 2, 655405, 11, 1, 655406, 11, 0, 655407, 11, 65535, 655408, 12, 2, 655409, 12, 1, 655410)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_2ytpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4626, 0.41977, 0.609569)
+
+[node name="GolfBallRed" parent="." instance=ExtResource("3_2ytpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3453, 0.1682, -0.54131)
+collision_mask = 1
+
+[node name="spline-concave-corner-large-ramp2" parent="." instance=ExtResource("4_npfmg")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.5, 1, -1)
+
+[node name="Node3D" parent="." instance=ExtResource("5_npfmg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1, -1)

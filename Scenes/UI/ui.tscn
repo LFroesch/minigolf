@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt7lobwawrwk2"]
+
+[ext_resource type="Script" uid="uid://brud56w1ys1c0" path="res://Scenes/UI/ui.gd" id="1_ahcct"]
+[ext_resource type="FontFile" uid="uid://mmr2xa0a514t" path="res://Scenes/UI/PTN77F.ttf" id="2_de23q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ej242"]
+bg_color = Color(0, 0, 0, 0.670588)
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_ahcct")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(175, 150)
+layout_mode = 0
+offset_right = 175.0
+offset_bottom = 150.0
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ej242")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 153.0
+offset_bottom = 215.0
+theme_override_constants/separation = -5
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_de23q")
+theme_override_font_sizes/font_size = 30
+text = "Level:"
+uppercase = true
+
+[node name="StrokesLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_de23q")
+theme_override_font_sizes/font_size = 30
+text = "Strokes:"
+uppercase = true
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_de23q")
+theme_override_font_sizes/font_size = 30
+text = "Score:"
+uppercase = true
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_de23q")
+theme_override_font_sizes/font_size = 30
+text = "Time:"
+uppercase = true

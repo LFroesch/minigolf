@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://b736vre4brnyy"]
+
+[ext_resource type="Script" uid="uid://dt5vq8gq2c28r" path="res://Scenes/Player/player.gd" id="1_fiof3"]
+[ext_resource type="PackedScene" uid="uid://drgxdm7fpoun5" path="res://Scenes/Player/camera_controller.tscn" id="2_a3d8c"]
+[ext_resource type="PackedScene" uid="uid://c51fj8xk2xo04" path="res://Scenes/Clubs/club_green_2.tscn" id="3_xpcdj"]
+[ext_resource type="PackedScene" uid="uid://bt7lobwawrwk2" path="res://Scenes/UI/ui.tscn" id="4_mtuoh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fiof3"]
+radius = 0.1
+height = 0.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3smlw"]
+radius = 0.1
+height = 0.5
+
+[node name="Player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_fiof3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_fiof3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_3smlw")
+
+[node name="CameraController" parent="." instance=ExtResource("2_a3d8c")]
+transform = Transform3D(-4.37114e-08, 0.422618, -0.906308, 0, 0.906308, 0.422618, 1, 1.84732e-08, -3.9616e-08, 0, 0.4, 0)
+
+[node name="club-green2" parent="." instance=ExtResource("3_xpcdj")]
+transform = Transform3D(-8.136e-09, -0.0517638, -0.193185, -2.26267e-09, 0.193185, -0.0517638, 0.2, 7.98197e-11, -8.44439e-09, 0.148899, -0.103313, 0)
+club_offset = Vector3(0.1, -0.1, 0)
+
+[node name="SwingTimer" type="Timer" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("4_mtuoh")]
